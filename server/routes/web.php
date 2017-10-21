@@ -14,3 +14,9 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::any( '{catchall}', function ( $url ) {
+    $controller = new App\Http\Controllers\IndexController();
+    return $controller->index();
+} )->where('catchall', '(.*)');
