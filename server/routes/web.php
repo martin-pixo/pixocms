@@ -16,7 +16,6 @@
 // });
 
 
-Route::any( '{catchall}', function ( $url ) {
-    $controller = new App\Http\Controllers\IndexController();
-    return $controller->index();
-} )->where('catchall', '(.*)');
+Route::get( '{all}', function ( $url ) {
+    return view('index');
+})->where('all', '(.*)');
